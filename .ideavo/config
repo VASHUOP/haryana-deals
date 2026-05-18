@@ -1,0 +1,21 @@
+{
+  "systemSetup": [],
+  "templateName": "custom",
+  "projectDependencies": [
+    { "name": "Install Client Dependencies", "command": "cd client && npm install" },
+    { "name": "Install Server Dependencies", "command": "cd server && npm install" }
+  ],
+  "codeChecks": [],
+  "buildSteps": [
+    { "name": "Build Client", "command": "cd client && npm run build" }
+  ],
+  "runStep": [
+    { "name": "Start Backend Server", "command": "cd server && npm start", "port": "5000" }
+  ],
+  "deploySteps": [],
+  "cleanupFiles": ["client/node_modules", "client/dist", "server/node_modules"],
+  "packageManager": "npm",
+  "envPaths": [
+    { "name": "Server Environment", "path": "server/.env" }
+  ]
+}
